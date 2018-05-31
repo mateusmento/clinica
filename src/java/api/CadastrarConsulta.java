@@ -50,7 +50,7 @@ public class CadastrarConsulta extends HttpServlet
             ConsultaDAO consultadao = new ConsultaDAO();
             consultadao.inserir(consulta);
 
-            request.getRequestDispatcher("/index.jsp").forward(request, response);
+            response.sendRedirect("/");
             
         } catch (Throwable ex) {
             enviarPaginaErro(ex.toString(), request, response);

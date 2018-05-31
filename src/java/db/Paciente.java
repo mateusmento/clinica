@@ -3,7 +3,7 @@ package db;
 public class Paciente
 {
     String nome, login, senha;
-    int id;
+    int id = -1;
 
     public Paciente()
     {

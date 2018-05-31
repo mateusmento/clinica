@@ -11,6 +11,16 @@ public class PacienteDAO extends DAO
     {
     }
 
+    public void inserir(Paciente paciente) throws SQLException
+    {
+        String query = "insert into paciente values(null, ?, ?, ?)";
+        PreparedStatement sql = mysql.prepareStatement(query);
+        sql.setString(1, paciente.getNome());
+        sql.setString(2, paciente.getLogin());
+        sql.setString(3, paciente.getSenha());
+        sql.executeUpdate();
+    }
+    
     
     public Paciente getPaciente(String login) throws SQLException
     {

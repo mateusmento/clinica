@@ -35,14 +35,10 @@ public class Login extends HttpServlet {
             PacienteDAO dao = new PacienteDAO();
             Paciente paciente = dao.getPaciente(login);
             
-            if (paciente != null) {
-                if (senha.equals(paciente.getSenha())) {
-                    request.getSession(true).setAttribute("paciente", paciente);
-                } else {
-                    request.setAttribute("msg", "Login ou senha errado.");
-                }
+            if (paciente != null && senha.equals(paciente.getSenha())) {
+                request.getSession().setAttribute("paciente", paciente);
             } else {
-                request.setAttribute("msg", "Login ou senha errado.");
+                request.getSession().setAttribute("msg", "Login ou senha errado.");
             }
             
 
@@ -50,6 +46,6 @@ public class Login extends HttpServlet {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        request.getRequestDispatcher("/index.jsp").forward(request, response);
+        response.sendRedirect("/");
     }
 }

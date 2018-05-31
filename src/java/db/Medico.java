@@ -3,7 +3,7 @@ package db;
 public class Medico
 {
     String nome, especialidade;
-    int id;
+    int id = -1;
     
     public Medico()
     {

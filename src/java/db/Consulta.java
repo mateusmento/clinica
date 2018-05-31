@@ -13,7 +13,9 @@ public class Consulta {
     String convenio;
     Date data;
     Time horario;
-    
+    int id = -1;
+
+
     public Consulta()
     {
     }

@@ -1,8 +1,8 @@
-drop database clinica_db;
+drop database if exists clinica_db;
 create database clinica_db;
 use clinica_db;
 
-drop user clinica@localhost;
+drop user if exists clinica@localhost;
 create user clinica@localhost identified by 'clinica123';
 
 grant all privileges on clinica_db.* to clinica@localhost;
@@ -11,17 +11,17 @@ grant all privileges on clinica_db.* to clinica@localhost;
 create table medico (
 	id int not null auto_increment,
 	nome varchar(64) not null,
-	especialidade varchar(64),
-	crm int,
+	especialidade varchar(64) not null,
 	primary key(id)
 );
 
 create table paciente (
 	id int not null auto_increment,
 	nome varchar(64) not null,
-	cpf int,
+	login varchar(64) not null,
+	senha varchar(64) not null,
 	primary key (id),
-	unique key(cpf)
+	unique key(login)
 );
 
 create table consulta (
@@ -50,4 +50,4 @@ insert into medico values
 (null, "Luiz Pacheco",      "Pediatria"    );
 
 insert into paciente values
-(null, "Mateus Sarmento", "mateus", "123");
+(null, "Beatrice Oliveira ", "paciente", "123");

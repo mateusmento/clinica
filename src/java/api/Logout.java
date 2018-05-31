@@ -16,7 +16,7 @@ public class Logout extends HttpServlet {
         throws ServletException, IOException
     {
         request.getSession().setAttribute("paciente", null);
-        request.getRequestDispatcher("/index.jsp").forward(request, response);
+        response.sendRedirect("/");
     }
 
     @Override
